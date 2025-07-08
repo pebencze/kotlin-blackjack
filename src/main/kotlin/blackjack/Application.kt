@@ -4,5 +4,5 @@ import blackjack.controller.Controller
 
 fun main() {
     val controller = Controller()
-    controller.initializePlayers()
+    controller.runGame()
 }

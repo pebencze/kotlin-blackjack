@@ -9,4 +9,8 @@ class Player(
         require(name.length <= 15) { "Name cannot be longer than 15 chars" }
         require(name.all { it.isLetter() }) { "Name must contain only letters" }
     }
+
+    override fun toString(): String {
+        return name
+    }
 }

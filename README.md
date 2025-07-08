@@ -41,8 +41,8 @@ jason: Lose
 ```
 
 ## Features
-- [ ] get user input for player names
-  - [ ] MIN (1), MAX(7) excluding dealer
+- [x] get user input for player names
+  - [x] MIN (1), MAX(7) excluding dealer
   - [x] names can contain only letters
   - [x] MAX..MIN length
   - [x] comma separated
