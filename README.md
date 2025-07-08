@@ -50,10 +50,10 @@ jason: Lose
 - [x] display names
 
 ### Cards
-- [ ] create card decks
+- [x] create card deck
 - [ ] Card values follow standard Blackjack rules:
-  - [ ] Number cards are counted by their face value.
-  - [ ] Face cards (King, Queen, Jack) are each worth 10.
+  - [x] Number cards are counted by their face value.
+  - [x] Face cards (King, Queen, Jack) are each worth 10.
   - [ ] Aces can be worth either 1 or 11.
 #### Deck
 #### Card
@@ -86,7 +86,8 @@ jason: Lose
   - [ ] dealer 
 - [ ] display results
 
-
+## Considerations
+- feature: add multiple card decks instead of a single one to draw from as in real multiplayer blackjack
 
   
 
