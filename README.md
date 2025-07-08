@@ -9,6 +9,8 @@ The dealer must draw a card if their total is 16 or less, and must stand on 17 o
 If the dealer busts (goes over 21), all remaining players automatically win.
 After the game ends, display the result (win/loss) for each player.
 
+## Sample Output
+```
 Enter the names of the players (comma-separated):
 pobi,jason
 
@@ -36,13 +38,14 @@ Final Results
 Dealer: 1 Win 1 Lose
 pobi: Win
 jason: Lose
+```
 
 ## Features
 - [ ] get user input for player names
   - [ ] MIN (1), MAX(7) excluding dealer
-  - [ ] names can contain only letters
-  - [ ] MAX..MIN length
-  - [ ] comma separated
+  - [x] names can contain only letters
+  - [x] MAX..MIN length
+  - [x] comma separated
 - [ ] display names 
 
 - [ ] deal initial cards to player and dealer (participants)
@@ -69,6 +72,8 @@ jason: Lose
   - [ ] player 
   - [ ] dealer 
 - [ ] display results
+
+
 
   
 
