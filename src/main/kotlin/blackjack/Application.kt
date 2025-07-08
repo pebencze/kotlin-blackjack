@@ -1,5 +1,8 @@
 package blackjack
 
-fun main() {
+import blackjack.controller.Controller
 
+fun main() {
+    val controller = Controller()
+    controller.initializePlayers()
 }
