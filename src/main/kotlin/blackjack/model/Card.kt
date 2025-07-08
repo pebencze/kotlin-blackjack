@@ -1,7 +1,6 @@
 package blackjack.model
 
-class Card(
-    val name: String,
-    val value: Int,
-    val color: String) {
-}
+data class Card(
+    val rank: Rank,
+    val suit: Suit,
+)

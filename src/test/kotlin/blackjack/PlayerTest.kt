@@ -8,7 +8,6 @@ import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.ValueSource
 
 class PlayerTest {
-
     @ParameterizedTest
     @ValueSource(strings = ["1234", "", "abcdefghijklmnopqrstxyz"])
     fun `test failing names`(name: String) {
@@ -18,7 +17,6 @@ class PlayerTest {
     @ParameterizedTest
     @ValueSource(strings = ["abcdef", "blackjacker", "pobi"])
     fun `test good names`(name: String) {
-        assertDoesNotThrow{ Player(name, HandCards()) }
+        assertDoesNotThrow { Player(name, HandCards()) }
     }
-
 }

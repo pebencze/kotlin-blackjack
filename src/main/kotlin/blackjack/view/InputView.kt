@@ -9,6 +9,4 @@ object InputView {
         }
         return input.split(",").map { it.trim() }
     }
-
-
 }

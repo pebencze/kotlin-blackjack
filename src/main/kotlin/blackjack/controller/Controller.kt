@@ -2,13 +2,12 @@ package blackjack.controller
 
 import blackjack.model.ErrorMessage
 import blackjack.model.HandCards
-import blackjack.view.InputView
 import blackjack.model.Player
 import blackjack.model.Players
+import blackjack.view.InputView
 import blackjack.view.OutputView
 
 class Controller {
-
     fun runGame() {
         val players = initializePlayers()
         OutputView.displayPlayerNames(players)
@@ -27,7 +26,11 @@ class Controller {
         throw RuntimeException(ErrorMessage.MAX_TRIES.message)
     }
 
-    companion object{
+    fun createCardDeck() {
+
+    }
+
+    companion object {
         const val MAX_TRIES = 5
     }
 }

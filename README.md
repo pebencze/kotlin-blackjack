@@ -41,12 +41,25 @@ jason: Lose
 ```
 
 ## Features
+### Players
 - [x] get user input for player names
   - [x] MIN (1), MAX(7) excluding dealer
   - [x] names can contain only letters
   - [x] MAX..MIN length
   - [x] comma separated
-- [ ] display names 
+- [x] display names
+
+### Cards
+- [ ] create card decks
+- [ ] Card values follow standard Blackjack rules:
+  - [ ] Number cards are counted by their face value.
+  - [ ] Face cards (King, Queen, Jack) are each worth 10.
+  - [ ] Aces can be worth either 1 or 11.
+#### Deck
+#### Card
+- [ ] suit
+- [ ] rank
+- [ ] value
 
 - [ ] deal initial cards to player and dealer (participants)
   - [ ] 2 per player
