@@ -15,9 +15,10 @@ data class PlayerResult(var win: Boolean = false, var draw: Boolean = false, val
 
 class ResultEvaluator(val players: Players, val dealer: Dealer) {
     var dealerResult: DealerResult = DealerResult()
-    var playerResults: List<PlayerResult> = listOf(PlayerResult())
-    init{
+    var playerResults: MutableList<PlayerResult> = mutableListOf()
+    init {
         calculateDealerResults()
+        calculateAllPlayersResults()
     }
 
     fun calculateDealerResults() {
@@ -41,6 +42,22 @@ class ResultEvaluator(val players: Players, val dealer: Dealer) {
                 player.handCards.total > dealer.handCards.total -> dealerResult.losses++
                 else -> dealerResult.draws++
             }
+        }
+    }
+
+    fun calculateAllPlayersResults() {
+        players.forEach { playerResults.add(calculatePlayerResult(it)) }
+    }
+
+    fun calculatePlayerResult(player: Player): PlayerResult {
+        if (player.isBusted())
+            return PlayerResult(name = player.name)
+        if (dealer.isBusted())
+            return PlayerResult(win = true, name = player.name)
+        return when {
+            player.handCards.total < dealer.handCards.total -> PlayerResult(name = player.name)
+            player.handCards.total > dealer.handCards.total -> PlayerResult(win = true, name = player.name)
+            else -> PlayerResult(draw = true, name = player.name)
         }
     }
 

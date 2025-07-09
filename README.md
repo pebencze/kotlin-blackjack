@@ -81,10 +81,10 @@ jason: Lose
 - [x] display cards
 - [x] display sum
 
-- [ ] calculate results
-  - [ ] player 
-  - [ ] dealer 
-- [ ] display results
+- [x] calculate results
+  - [x] player 
+  - [x] dealer 
+- [x] display results
 
 ## Considerations
 - feature: add multiple card decks instead of a single one to draw from as in real multiplayer blackjack so that cards do not run out for max 7 players
@@ -93,4 +93,4 @@ jason: Lose
 - fix: Enter the names of the players (comma-separated):
     a,b     c, d
     Name must contain only letters
-- 
+- refactor result evaluator
