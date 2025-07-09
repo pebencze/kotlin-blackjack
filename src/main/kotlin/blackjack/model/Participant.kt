@@ -8,4 +8,12 @@ interface Participant {
         val card = deck.hit()
         handCards.add(card)
     }
+
+    fun cardsToString(): String {
+        return handCards.cards.joinToString()
+    }
+
+    fun firstCardToString(): String {
+        return handCards.cards[0].toString()
+    }
 }

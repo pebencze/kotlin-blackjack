@@ -57,9 +57,9 @@ jason: Lose
   - [ ] Aces can be worth either 1 or 11.
 #### Deck
 #### Card
-- [ ] suit
-- [ ] rank
-- [ ] value
+- [x] suit
+- [x] rank
+- [x] value
 
 - [ ] deal initial cards to player and dealer (participants)
   - [ ] 2 per player
@@ -87,8 +87,7 @@ jason: Lose
 - [ ] display results
 
 ## Considerations
-- feature: add multiple card decks instead of a single one to draw from as in real multiplayer blackjack
-
+- feature: add multiple card decks instead of a single one to draw from as in real multiplayer blackjack so that cards do not run out for max 7 players
   
 
 

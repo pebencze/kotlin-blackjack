@@ -2,7 +2,7 @@ package blackjack.model
 
 class Player(
     override val name: String,
-    override var handCards: HandCards,
+    override var handCards: HandCards = HandCards(),
 ) : Participant {
     init {
         require(name.isNotBlank()) { "Name cannot be blank" }
