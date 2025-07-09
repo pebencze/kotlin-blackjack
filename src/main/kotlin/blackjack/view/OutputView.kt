@@ -21,4 +21,8 @@ object OutputView {
         print(participant.name + ": ")
         println(participant.firstCardToString())
     }
+
+    fun displayDealerDrawMessage() {
+        println("\nDealer draws one more card due to having 16 or less.")
+    }
 }

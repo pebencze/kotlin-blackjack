@@ -24,6 +24,14 @@ class Controller {
         OutputView.displayFirstCardMessage(dealer)
         players.forEach { OutputView.displayAllCardsMessage(it) }
         players.dealCards()
+        dealer.dealCards()
+    }
+
+    fun Dealer.dealCards() {
+        while (this.shouldDraw()) {
+            OutputView.displayDealerDrawMessage()
+            this.drawCard(deck)
+        }
     }
 
     fun Players.dealCards() {
