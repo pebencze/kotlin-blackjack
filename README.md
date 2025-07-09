@@ -88,8 +88,5 @@ jason: Lose
 
 ## Considerations
 - feature: add multiple card decks instead of a single one to draw from as in real multiplayer blackjack so that cards do not run out for max 7 players
-  
 
-
-
-
+- test what happens when all cards pulled

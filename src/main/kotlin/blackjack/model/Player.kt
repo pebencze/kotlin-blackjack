@@ -10,6 +10,10 @@ class Player(
         require(name.all { it.isLetter() }) { "Name must contain only letters" }
     }
 
+    fun isNotBusted(): Boolean {
+        return (handCards.total <= 21)
+    }
+
     override fun toString(): String {
         return name
     }

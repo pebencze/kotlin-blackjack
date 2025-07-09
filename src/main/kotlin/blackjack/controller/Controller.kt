@@ -31,7 +31,7 @@ class Controller {
     }
 
     fun dealCards(player: Player) {
-        while (wantsToDraw(player)) {
+        while (player.isNotBusted() && wantsToDraw(player)) {
             player.drawCard(deck)
             OutputView.displayAllCardsMessage(player)
         }
