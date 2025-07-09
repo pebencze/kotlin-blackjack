@@ -75,11 +75,11 @@ jason: Lose
 - [x] calculate sum
 - [x] display cards of player
 
-- [ ] draw cards for dealer until sum is <= 16
-- [ ] display message
+- [x] draw cards for dealer until sum is <= 16
+- [x] display message
 
-- [ ] display cards
-- [ ] display sum
+- [x] display cards
+- [x] display sum
 
 - [ ] calculate results
   - [ ] player 
@@ -90,3 +90,7 @@ jason: Lose
 - feature: add multiple card decks instead of a single one to draw from as in real multiplayer blackjack so that cards do not run out for max 7 players
 
 - test what happens when all cards pulled
+- fix: Enter the names of the players (comma-separated):
+    a,b     c, d
+    Name must contain only letters
+- 
