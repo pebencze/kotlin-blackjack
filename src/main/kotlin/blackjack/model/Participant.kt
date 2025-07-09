@@ -9,9 +9,9 @@ interface Participant {
         handCards.add(card)
     }
 
-    fun isNotBusted(): Boolean {
-        return (handCards.total <= 21)
-    }
+    fun isNotBusted(): Boolean = (handCards.total <= 21)
+
+    fun isBusted(): Boolean = (handCards.total > 21)
 
     fun cardsToString(): String {
         return handCards.cards.joinToString()
