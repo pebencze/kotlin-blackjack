@@ -70,9 +70,9 @@ jason: Lose
 
 - [x] prompt each player for drawing cards
   - [x] until "n"
-  - [ ] until he is busted
+  - [x] until he is busted
 - [x] draw cards
-- [ ] calculate sum
+- [x] calculate sum
 - [x] display cards of player
 
 - [ ] draw cards for dealer until sum is <= 16
