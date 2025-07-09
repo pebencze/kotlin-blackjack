@@ -1,8 +1,8 @@
 package blackjack.model
 
 class HandCards(val cards: MutableList<Card> = mutableListOf()) {
-    private var aces = 0
-    private var reducedAces = 0
+    private var aces: Int = 0
+    private var reducedAces: Int = 0
     private var _total: Int = 0
     val total: Int
         get() = _total
