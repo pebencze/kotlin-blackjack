@@ -5,6 +5,7 @@ class CardDeck(
 ) {
     init {
         generateDeck()
+        this.shuffle()
     }
 
     val size: Int
@@ -16,5 +17,13 @@ class CardDeck(
                 deck.addFirst(Card(rank, suit))
             }
         }
+    }
+
+    private fun CardDeck.shuffle() {
+        this.deck.shuffle()
+    }
+
+    fun hit(): Card {
+        return deck.removeFirst()
     }
 }

@@ -1,3 +1,7 @@
 package blackjack.model
 
-class HandCards(val cards: List<Card> = emptyList<Card>(), val total: Int = 0)
+class HandCards(val cards: MutableList<Card> = mutableListOf(), val total: Int = 0) {
+    fun add(card: Card) {
+        cards.add(card)
+    }
+}
