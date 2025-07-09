@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test
 
 class CardTest {
     @Test
-    fun `test card constructor` () {
+    fun `test card constructor`() {
         val card = Card(Rank.ACE, Suit.DIAMONDS)
         assertThat(card.rank).isEqualTo(Rank.ACE)
         assertThat(card.suit).isEqualTo(Suit.DIAMONDS)
