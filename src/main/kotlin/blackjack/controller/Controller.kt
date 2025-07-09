@@ -5,6 +5,7 @@ import blackjack.model.Dealer
 import blackjack.model.ErrorMessage
 import blackjack.model.Player
 import blackjack.model.Players
+import blackjack.model.ResultEvaluator
 import blackjack.view.InputView
 import blackjack.view.OutputView
 import blackjack.view.OutputView.displayInitialCardsMessage
@@ -26,6 +27,12 @@ class Controller {
         players.dealCards()
         dealer.dealCards()
         displayCardsAndTotal()
+        printResults()
+    }
+
+    fun printResults() {
+        val results = ResultEvaluator(players, dealer)
+        OutputView.displayResults(results)
     }
 
     fun displayCardsAndTotal() {
