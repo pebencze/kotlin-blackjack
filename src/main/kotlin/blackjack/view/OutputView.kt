@@ -25,4 +25,10 @@ object OutputView {
     fun displayDealerDrawMessage() {
         println("\nDealer draws one more card due to having 16 or less.")
     }
+
+    fun displayParticipantStatus(participant: Participant){
+        print(participant.name + "'s cards: ")
+        print(participant.cardsToString())
+        println(" – Total: ${participant.handCards.total}")
+    }
 }

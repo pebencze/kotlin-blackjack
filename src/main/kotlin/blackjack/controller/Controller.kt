@@ -25,6 +25,12 @@ class Controller {
         players.forEach { OutputView.displayAllCardsMessage(it) }
         players.dealCards()
         dealer.dealCards()
+        displayCardsAndTotal()
+    }
+
+    fun displayCardsAndTotal() {
+        OutputView.displayParticipantStatus(dealer)
+        players.forEach { OutputView.displayParticipantStatus(it) }
     }
 
     fun Dealer.dealCards() {
