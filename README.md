@@ -61,19 +61,19 @@ jason: Lose
 - [x] rank
 - [x] value
 
-- [ ] deal initial cards to player and dealer (participants)
-  - [ ] 2 per player
-- [ ] print cards
-  - [ ] for the dealer only 1
-  - [ ] for players all
-  - [ ] color and value
+- [x] deal initial cards to player and dealer (participants)
+  - [x] 2 per player
+- [x] print cards
+  - [x] for the dealer only 1
+  - [x] for players all
+  - [x] color and value
 
-- [ ] prompt each player for drawing cards
-  - [ ] until "n"
+- [x] prompt each player for drawing cards
+  - [x] until "n"
   - [ ] until he is busted
-- [ ] draw cards
+- [x] draw cards
 - [ ] calculate sum
-- [ ] display cards of player
+- [x] display cards of player
 
 - [ ] draw cards for dealer until sum is <= 16
 - [ ] display message

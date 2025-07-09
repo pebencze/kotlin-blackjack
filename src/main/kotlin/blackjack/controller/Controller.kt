@@ -11,20 +11,46 @@ import blackjack.view.OutputView.displayInitialCardsMessage
 
 class Controller {
     private val deck = CardDeck()
-    private var players: Players? = null
+    private var _players: Players? = null
     private val dealer = Dealer()
 
+    private val players: Players
+            get() = _players!!
+
     fun runGame() {
-        players = initializePlayers()
-        OutputView.displayPlayerNames(players!!)
+        _players = initializePlayers()
+        OutputView.displayPlayerNames(players)
         drawInitialCards()
         OutputView.displayFirstCardMessage(dealer)
-//        OutputView.displayAllCardsMessage(players!!.players[0])
-        players!!.forEach { OutputView.displayAllCardsMessage(it) }
+        players.forEach { OutputView.displayAllCardsMessage(it) }
+        players.dealCards()
+    }
+
+    fun Players.dealCards() {
+        players.forEach { dealCards(it) }
+    }
+
+    fun dealCards(player: Player) {
+        while (wantsToDraw(player)) {
+            player.drawCard(deck)
+            OutputView.displayAllCardsMessage(player)
+        }
+    }
+
+    fun wantsToDraw(player: Player): Boolean {
+        repeat(MAX_TRIES){
+            try {
+                return InputView.promptForDraw(player)
+            } catch (e: IllegalArgumentException) {
+                println(e.message)
+                return@repeat
+            }
+        }
+        throw RuntimeException(ErrorMessage.MAX_TRIES.message)
     }
 
     fun initializePlayers(): Players {
-        repeat(5) {
+        repeat(MAX_TRIES) {
             try {
                 val playerNames = InputView.readNames()
                 val players = Players(playerNames.map { Player(it) })
@@ -37,10 +63,10 @@ class Controller {
     }
 
     fun drawInitialCards() {
-        displayInitialCardsMessage(players!!)
+        displayInitialCardsMessage(players)
         repeat(2) {
             dealer.drawCard(deck)
-            players!!.forEach { it.drawCard(deck) }
+            players.forEach { it.drawCard(deck) }
         }
     }
 
