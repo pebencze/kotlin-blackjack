@@ -87,10 +87,8 @@ jason: Lose
 - [x] display results
 
 ## Considerations
-- feature: add multiple card decks instead of a single one to draw from as in real multiplayer blackjack so that cards do not run out for max 7 players
-
-- test what happens when all cards pulled
-- fix: Enter the names of the players (comma-separated):
-    a,b     c, d
-    Name must contain only letters
 - refactor result evaluator
+- error messages
+Q1: How should we name players inside the Players class?
+Q2: Should we use multiple decks?
+Q3: State in Controller (even if private) is bad practice?
