@@ -1,5 +1,6 @@
 package blackjack.view
 
+import blackjack.model.Dealer
 import blackjack.model.DealerResult
 import blackjack.model.Participant
 import blackjack.model.PlayerResult
@@ -29,6 +30,8 @@ object OutputView {
     }
 
     fun displayParticipantStatus(participant: Participant){
+        if (participant is Dealer)
+            println()
         print(participant.name + "'s cards: ")
         print(participant.cardsToString())
         println(" – Total: ${participant.handCards.total}")
