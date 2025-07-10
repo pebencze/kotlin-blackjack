@@ -5,6 +5,7 @@ data class DealerResult(var wins: Int = 0, var losses: Int = 0, var draws: Int =
         return "Dealer: $wins wins, $losses losses, $draws draws"
     }
 }
+
 data class PlayerResult(var win: Boolean = false, var draw: Boolean = false, val name: String = "") {
     override fun toString(): String {
         if (win) return "$name: win"
@@ -14,51 +15,54 @@ data class PlayerResult(var win: Boolean = false, var draw: Boolean = false, val
 }
 
 class ResultEvaluator(val players: Players, val dealer: Dealer) {
-    var dealerResult: DealerResult = DealerResult()
-    var playerResults: MutableList<PlayerResult> = mutableListOf()
-    init {
-        calculateDealerResults()
-        calculateAllPlayersResults()
+
+    fun calculateResults(): Pair<DealerResult, List<PlayerResult>> {
+        return Pair(calculateDealerResults(), calculateAllPlayersResults())
     }
 
-    fun calculateDealerResults() {
+    private fun calculateDealerResults(): DealerResult {
+        val dealerResult = DealerResult()
         if (dealer.isBusted()) {
             dealerResult.losses = players.players.count() { it.isNotBusted() }
-            return
+            return dealerResult
         }
         players.forEach {
-            compareDealerToPlayer( it )
+            compareDealerToPlayer( it, dealerResult)
         }
+        return dealerResult
     }
 
-    fun compareDealerToPlayer(player: Player) {
+    private fun compareDealerToPlayer(player: Player, dealerResult: DealerResult) {
         if (player.isBusted()){
             dealerResult.wins++
         }
         if (player.isNotBusted()) {
             when {
-                player.handCards.total < dealer.handCards.total -> dealerResult.wins++
-                player.handCards.total > dealer.handCards.total -> dealerResult.losses++
+                player.handCards < dealer.handCards -> dealerResult.wins++
+                player.handCards > dealer.handCards -> dealerResult.losses++
                 else -> dealerResult.draws++
             }
         }
     }
 
-    fun calculateAllPlayersResults() {
+    private fun calculateAllPlayersResults(): List<PlayerResult> {
+        val playerResults = mutableListOf<PlayerResult>()
         players.forEach { playerResults.add(calculatePlayerResult(it)) }
+        return playerResults
     }
 
-    fun calculatePlayerResult(player: Player): PlayerResult {
+    private fun calculatePlayerResult(player: Player): PlayerResult {
         if (player.isBusted())
             return PlayerResult(name = player.name)
         if (dealer.isBusted())
             return PlayerResult(win = true, name = player.name)
         return when {
-            player.handCards.total < dealer.handCards.total -> PlayerResult(name = player.name)
-            player.handCards.total > dealer.handCards.total -> PlayerResult(win = true, name = player.name)
+            player.handCards < dealer.handCards -> PlayerResult(name = player.name)
+            player.handCards > dealer.handCards -> PlayerResult(win = true, name = player.name)
             else -> PlayerResult(draw = true, name = player.name)
         }
     }
+
 
     //DEALER
     // isNotBusted()

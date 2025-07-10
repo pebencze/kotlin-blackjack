@@ -20,4 +20,16 @@ class HandCards(val cards: MutableList<Card> = mutableListOf()) {
             _total -= 10
         }
     }
+
+//    fun drawable(): Boolean {
+//        return true
+//    }
+//
+//    fun calculateTotal(): Int {
+//        return 0
+//    }
+
+    operator fun compareTo(other: HandCards): Int {
+        return this.total - other.total
+    }
 }

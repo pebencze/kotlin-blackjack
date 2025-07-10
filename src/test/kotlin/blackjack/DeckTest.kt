@@ -1,8 +1,14 @@
 package blackjack
 
+import blackjack.model.Card
 import blackjack.model.CardDeck
+import blackjack.model.Rank
+import blackjack.model.Suit
+import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertDoesNotThrow
+import org.junit.jupiter.api.assertThrows
 
 class DeckTest {
     @Test
@@ -22,5 +28,15 @@ class DeckTest {
         deck1.hit()
         val deck2 = CardDeck()
         assertEquals(deck1.size, deck2.size - 1)
+    }
+
+    @Test
+    fun `test draw more than deck`()  {
+        val deck = CardDeck()
+        var card = Card(Rank.ACE, Suit.HEARTS)
+        repeat(52) {
+            card = deck.hit()
+        }
+        assertThrows<Exception> { card = deck.hit() }
     }
 }

@@ -31,7 +31,8 @@ class Controller {
     }
 
     fun printResults() {
-        val results = ResultEvaluator(players, dealer)
+        val evaluator = ResultEvaluator(players, dealer)
+        val results = evaluator.calculateResults()
         OutputView.displayResults(results)
     }
 

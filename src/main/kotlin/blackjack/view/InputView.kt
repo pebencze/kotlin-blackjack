@@ -12,7 +12,6 @@ object InputView {
         return input.split(",").map { it.trim() }
     }
 
-    // TODO validation outside??
     fun promptForDraw(player: Player): Boolean {
         println("\nWould ${player.name} like to draw another card? (y for yes, n for no)")
         val input = readln().trim()
