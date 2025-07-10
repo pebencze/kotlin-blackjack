@@ -4,7 +4,6 @@ import blackjack.model.DealerResult
 import blackjack.model.Participant
 import blackjack.model.PlayerResult
 import blackjack.model.Players
-import blackjack.model.ResultEvaluator
 
 object OutputView {
     fun displayPlayerNames(players: Players) {
