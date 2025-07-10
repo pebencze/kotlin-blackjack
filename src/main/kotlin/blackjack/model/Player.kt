@@ -5,9 +5,9 @@ class Player(
     override var handCards: HandCards = HandCards(),
 ) : Participant() {
     init {
-        require(name.isNotBlank()) { "Name cannot be blank" }
-        require(name.length <= 15) { "Name cannot be longer than 15 chars" }
-        require(name.all { it.isLetter() }) { "Name must contain only letters" }
+        require(name.isNotBlank()) { ErrorMessage.NAME_BLANK.toString() }
+        require(name.length <= 15) { ErrorMessage.NAME_LENGTH.toString() }
+        require(name.all { it.isLetter() }) { ErrorMessage.NAME_LETTERS.toString() }
     }
 
     override fun toString(): String {

@@ -1,13 +1,15 @@
 package blackjack.view
 
+import blackjack.model.ErrorMessage
 import blackjack.model.Player
+import blackjack.model.PromptMessage
 
 object InputView {
     fun readNames(): List<String> {
-        println("\nEnter the names of the players (comma-separated):")
+        println(PromptMessage.PLAYER_NAMES)
         val input = readln()
         if (input.isEmpty()) {
-            throw IllegalArgumentException("input is empty")
+            throw IllegalArgumentException(ErrorMessage.EMPTY_INPUT.toString())
         }
         return input.split(",").map { it.trim() }
     }
@@ -16,12 +18,12 @@ object InputView {
         println("\nWould ${player.name} like to draw another card? (y for yes, n for no)")
         val input = readln().trim()
         if (input.isEmpty()) {
-            throw IllegalArgumentException("input is empty")
+            throw IllegalArgumentException(ErrorMessage.EMPTY_INPUT.toString())
         }
         return when (input) {
             YES -> true
             NO -> false
-            else -> throw IllegalArgumentException("input is invalid")
+            else -> throw IllegalArgumentException(ErrorMessage.EMPTY_INPUT.toString())
         }
     }
 
