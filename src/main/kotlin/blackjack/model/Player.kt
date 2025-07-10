@@ -3,7 +3,7 @@ package blackjack.model
 class Player(
     override val name: String,
     override var handCards: HandCards = HandCards(),
-) : Participant {
+) : Participant() {
     init {
         require(name.isNotBlank()) { "Name cannot be blank" }
         require(name.length <= 15) { "Name cannot be longer than 15 chars" }

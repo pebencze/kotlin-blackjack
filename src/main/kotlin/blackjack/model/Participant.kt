@@ -1,8 +1,8 @@
 package blackjack.model
 
-interface Participant {
-    val name: String
-    val handCards: HandCards
+abstract class Participant {
+    abstract val name: String
+    abstract val handCards: HandCards
 
     fun drawCard(deck: CardDeck) {
         val card = deck.hit()
