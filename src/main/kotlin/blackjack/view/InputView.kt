@@ -14,7 +14,7 @@ object InputView {
 
     // TODO validation outside??
     fun promptForDraw(player: Player): Boolean {
-        println("Would ${player.name} like to draw another card? (y for yes, n for no)")
+        println("\nWould ${player.name} like to draw another card? (y for yes, n for no)")
         val input = readln().trim()
         if (input.isEmpty()) {
             throw IllegalArgumentException("input is empty")

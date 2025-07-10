@@ -23,8 +23,7 @@ class ResultEvaluator(val players: Players, val dealer: Dealer) {
 
     fun calculateDealerResults() {
         if (dealer.isBusted()) {
-            // TODO: check players.players replace
-            dealerResult.losses = players.players.count() { !it.isBusted() }
+            dealerResult.losses = players.players.count() { it.isNotBusted() }
             return
         }
         players.forEach {
