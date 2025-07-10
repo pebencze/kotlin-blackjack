@@ -24,6 +24,7 @@ class ResultEvaluator(val players: Players, val dealer: Dealer) {
         val dealerResult = DealerResult()
         if (dealer.isBusted()) {
             dealerResult.losses = players.players.count() { it.isNotBusted() }
+            dealerResult.wins = players.players.count() { it.isBusted() }
             return dealerResult
         }
         players.forEach {

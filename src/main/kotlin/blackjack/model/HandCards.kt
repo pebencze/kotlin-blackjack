@@ -1,35 +1,37 @@
 package blackjack.model
 
 class HandCards(val cards: MutableList<Card> = mutableListOf()) {
-    private var aces: Int = 0
-    private var reducedAces: Int = 0
-    private var _total: Int = 0
     val total: Int
-        get() = _total
+        get() = calculateTotal()
 
     fun add(card: Card) {
         cards.add(card)
-        _total += card.rank.value
-        checkReduceAceValue(card)
     }
 
-    fun checkReduceAceValue(card: Card) {
-        if (card.rank == Rank.ACE) aces++
-        if (total > 21 && aces > reducedAces) {
-            reducedAces += 1
-            _total -= 10
+    fun calculateTotal(): Int {
+        var total = 0
+        for (card in cards) {
+            total += card.rank.value
         }
+        total -= discount(total)
+        return total
     }
 
-//    fun drawable(): Boolean {
-//        return true
-//    }
-//
-//    fun calculateTotal(): Int {
-//        return 0
-//    }
+    fun discount(total: Int): Int {
+        var numberOfAces = 0
+        var discount = 0
+        for (card in cards) {
+            if (card.rank == Rank.ACE) numberOfAces++
+        }
+        repeat(numberOfAces) {
+            if (total - discount > 21) {
+                discount += 10
+            }
+        }
+        return discount
+    }
 
     operator fun compareTo(other: HandCards): Int {
-        return this.total - other.total
+        return this.calculateTotal() - other.calculateTotal()
     }
 }
