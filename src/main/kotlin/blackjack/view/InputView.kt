@@ -2,11 +2,10 @@ package blackjack.view
 
 import blackjack.model.ErrorMessage
 import blackjack.model.Player
-import blackjack.model.PromptMessage
 
 object InputView {
     fun readNames(): List<String> {
-        println(PromptMessage.PLAYER_NAMES)
+        println("\nEnter the names of the players (comma-separated):")
         val input = readln()
         if (input.isEmpty()) {
             throw IllegalArgumentException(ErrorMessage.EMPTY_INPUT.toString())
