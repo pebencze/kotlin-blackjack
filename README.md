@@ -1,13 +1,14 @@
 # kotlin-blackjack
-Card values follow standard Blackjack rules:
-Number cards are counted by their face value.
-Face cards (King, Queen, Jack) are each worth 10.
-Aces can be worth either 1 or 11.
-Each player starts with two cards.
-Players may draw additional cards as long as their total remains 21 or less.
-The dealer must draw a card if their total is 16 or less, and must stand on 17 or more.
-If the dealer busts (goes over 21), all remaining players automatically win.
-After the game ends, display the result (win/loss) for each player.
+Implementation of the Blackjack card game in Kotlin.
+## Standard Blackjack rules:
+- Number cards are counted by their face value.
+- Face cards (King, Queen, Jack) are each worth 10.
+- Aces can be worth either 1 or 11.
+- Each player starts with two cards.
+- Players may draw additional cards as long as their total remains 21 or less.
+- The dealer must draw a card if their total is 16 or less, and must stand on 17 or more.
+- If the dealer busts (goes over 21), all remaining players automatically win.
+- After the game ends, display the result (win/loss) for each player.
 
 ## Sample Output
 ```
@@ -51,10 +52,10 @@ jason: Lose
 
 ### Cards
 - [x] create card deck
-- [ ] Card values follow standard Blackjack rules:
+- [x] Card values follow standard Blackjack rules:
   - [x] Number cards are counted by their face value.
   - [x] Face cards (King, Queen, Jack) are each worth 10.
-  - [ ] Aces can be worth either 1 or 11.
+  - [x] Aces can be worth either 1 or 11.
 #### Deck
 #### Card
 - [x] suit
@@ -87,8 +88,6 @@ jason: Lose
 - [x] display results
 
 ## Considerations
-- refactor result evaluator
-- error messages
-Q1: How should we name players inside the Players class?
-Q2: Should we use multiple decks?
-Q3: State in Controller (even if private) is bad practice?
+Q1: How should we name players inside the Players class? </br>
+Q2: Should we use multiple decks? </br>
+Q3: State in Controller (even if private) is bad practice?</br>
