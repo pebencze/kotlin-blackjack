@@ -34,7 +34,7 @@ object OutputView {
     }
 
     fun displayResults(results: ResultEvaluator) {
-        println("\nFinal Results:")
+        println("\n## Final Results:")
         println(results.dealerResult)
         results.playerResults.forEach { println(it) }
     }
