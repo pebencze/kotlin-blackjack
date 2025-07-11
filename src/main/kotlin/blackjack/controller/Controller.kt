@@ -30,25 +30,25 @@ class Controller {
         printResults()
     }
 
-    fun printResults() {
+    private fun printResults() {
         val evaluator = ResultEvaluator(players, dealer)
         val results = evaluator.calculateResults()
         OutputView.displayResults(results)
     }
 
-    fun displayCardsAndTotal() {
+    private fun displayCardsAndTotal() {
         OutputView.displayParticipantStatus(dealer)
         players.forEach { OutputView.displayParticipantStatus(it) }
     }
 
-    fun Dealer.dealCards() {
+    private fun Dealer.dealCards() {
         while (this.shouldDraw()) {
             OutputView.displayDealerDrawMessage()
             this.drawCard(deck)
         }
     }
 
-    fun Players.dealCards() {
+    private fun Players.dealCards() {
         players.forEach { dealCards(it) }
     }
 
@@ -59,7 +59,7 @@ class Controller {
         }
     }
 
-    fun wantsToDraw(player: Player): Boolean {
+    private fun wantsToDraw(player: Player): Boolean {
         repeat(MAX_TRIES){
             try {
                 return InputView.promptForDraw(player)
@@ -71,7 +71,7 @@ class Controller {
         throw RuntimeException(ErrorMessage.MAX_TRIES.message)
     }
 
-    fun initializePlayers(): Players {
+    private fun initializePlayers(): Players {
         repeat(MAX_TRIES) {
             try {
                 val playerNames = InputView.readNames()
@@ -84,7 +84,7 @@ class Controller {
         throw RuntimeException(ErrorMessage.MAX_TRIES.message)
     }
 
-    fun drawInitialCards() {
+    private fun drawInitialCards() {
         displayInitialCardsMessage(players)
         repeat(2) {
             dealer.drawCard(deck)
