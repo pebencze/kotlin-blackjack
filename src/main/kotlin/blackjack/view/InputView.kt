@@ -16,12 +16,9 @@ object InputView {
         val input = readln().trim()
         require (input.isNotEmpty()) { (ErrorMessage.EMPTY_INPUT.toString()) }
         return when (input) {
-            YES -> true
-            NO -> false
+            "y" -> true
+            "n" -> false
             else -> throw IllegalArgumentException(ErrorMessage.EMPTY_INPUT.toString())
         }
     }
-
-    private const val YES = "y"
-    private const val NO = "n"
 }
