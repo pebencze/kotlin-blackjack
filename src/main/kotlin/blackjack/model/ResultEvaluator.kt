@@ -16,8 +16,8 @@ data class PlayerResult(var win: Boolean = false, var draw: Boolean = false, val
 
 class ResultEvaluator(val players: Players, val dealer: Dealer) {
 
-    fun calculateResults(): Pair<DealerResult, List<PlayerResult>> {
-        return Pair(calculateDealerResults(), calculateAllPlayersResults())
+    fun calculateResults(): Results {
+        return Results(calculateDealerResults(), calculateAllPlayersResults())
     }
 
     private fun calculateDealerResults(): DealerResult {

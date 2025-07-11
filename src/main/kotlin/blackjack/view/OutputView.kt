@@ -1,10 +1,9 @@
 package blackjack.view
 
 import blackjack.model.Dealer
-import blackjack.model.DealerResult
 import blackjack.model.Participant
-import blackjack.model.PlayerResult
 import blackjack.model.Players
+import blackjack.model.Results
 
 object OutputView {
     fun displayPlayerNames(players: Players) {
@@ -34,7 +33,7 @@ object OutputView {
         println(" – Total: ${participant.handCards.total}")
     }
 
-    fun displayResults(results: Pair<DealerResult, List<PlayerResult>>) {
+    fun displayResults(results: Results) {
         println("\n## Final Results:")
         println(results.component1())
         results.component2().forEach { println(it) }

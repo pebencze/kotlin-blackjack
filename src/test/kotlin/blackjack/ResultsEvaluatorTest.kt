@@ -23,10 +23,10 @@ class ResultsEvaluatorTest {
         val evaluator = ResultEvaluator(players, dealer)
         val results = evaluator.calculateResults()
 
-        assertThat(results.component1().wins).isEqualTo(1)
-        assertThat(results.component1().losses).isEqualTo(0)
-        assertThat(results.component2()[0].win).isEqualTo(false)
-        assertThat(results.component2()[0].draw).isEqualTo(false)
+        assertThat(results.dealerResult.wins).isEqualTo(1)
+        assertThat(results.dealerResult.losses).isEqualTo(0)
+        assertThat(results.playersResults[0].win).isEqualTo(false)
+        assertThat(results.playersResults[0].draw).isEqualTo(false)
     }
 
     @Test
@@ -39,10 +39,10 @@ class ResultsEvaluatorTest {
         val evaluator = ResultEvaluator(players, dealer)
         val results = evaluator.calculateResults()
 
-        assertThat(results.component1().wins).isEqualTo(0)
-        assertThat(results.component1().losses).isEqualTo(1)
-        assertThat(results.component2()[0].win).isEqualTo(true)
-        assertThat(results.component2()[0].draw).isEqualTo(false)
+        assertThat(results.dealerResult.wins).isEqualTo(0)
+        assertThat(results.dealerResult.losses).isEqualTo(1)
+        assertThat(results.playersResults[0].win).isEqualTo(true)
+        assertThat(results.playersResults[0].draw).isEqualTo(false)
     }
 
     @Test
@@ -55,10 +55,10 @@ class ResultsEvaluatorTest {
         val evaluator = ResultEvaluator(players, dealer)
         val results = evaluator.calculateResults()
 
-        assertThat(results.component1().wins).isEqualTo(0)
-        assertThat(results.component1().losses).isEqualTo(0)
-        assertThat(results.component2()[0].win).isEqualTo(false)
-        assertThat(results.component2()[0].draw).isEqualTo(true)
+        assertThat(results.dealerResult.wins).isEqualTo(0)
+        assertThat(results.dealerResult.losses).isEqualTo(0)
+        assertThat(results.playersResults[0].win).isEqualTo(false)
+        assertThat(results.playersResults[0].draw).isEqualTo(true)
     }
 
     @Test
