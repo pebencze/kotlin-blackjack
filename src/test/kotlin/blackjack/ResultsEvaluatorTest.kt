@@ -8,11 +8,10 @@ import blackjack.model.Players
 import blackjack.model.Rank
 import blackjack.model.ResultEvaluator
 import blackjack.model.Suit
-import blackjack.view.OutputView
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
-class ResultsTest {
+class ResultsEvaluatorTest {
 
     @Test
     fun `test dealer is not busted, player is not busted, DEALER WINS`() {
@@ -23,8 +22,6 @@ class ResultsTest {
         val players = Players(listOf(player))
         val evaluator = ResultEvaluator(players, dealer)
         val results = evaluator.calculateResults()
-        OutputView.displayAllCardsMessage(dealer)
-        OutputView.displayAllCardsMessage(players.players[0])
 
         assertThat(results.component1().wins).isEqualTo(1)
         assertThat(results.component1().losses).isEqualTo(0)
@@ -41,8 +38,6 @@ class ResultsTest {
         val players = Players(listOf(player))
         val evaluator = ResultEvaluator(players, dealer)
         val results = evaluator.calculateResults()
-        OutputView.displayAllCardsMessage(dealer)
-        OutputView.displayAllCardsMessage(players.players[0])
 
         assertThat(results.component1().wins).isEqualTo(0)
         assertThat(results.component1().losses).isEqualTo(1)
@@ -59,8 +54,6 @@ class ResultsTest {
         val players = Players(listOf(player))
         val evaluator = ResultEvaluator(players, dealer)
         val results = evaluator.calculateResults()
-        OutputView.displayAllCardsMessage(dealer)
-        OutputView.displayAllCardsMessage(players.players[0])
 
         assertThat(results.component1().wins).isEqualTo(0)
         assertThat(results.component1().losses).isEqualTo(0)
@@ -77,8 +70,6 @@ class ResultsTest {
         val players = Players(listOf(player))
         val evaluator = ResultEvaluator(players, dealer)
         val results = evaluator.calculateResults()
-        OutputView.displayAllCardsMessage(dealer)
-        OutputView.displayAllCardsMessage(players.players[0])
 
         assertThat(results.component1().wins).isEqualTo(1)
         assertThat(results.component1().losses).isEqualTo(0)
@@ -95,8 +86,6 @@ class ResultsTest {
         val players = Players(listOf(player))
         val evaluator = ResultEvaluator(players, dealer)
         val results = evaluator.calculateResults()
-        OutputView.displayAllCardsMessage(dealer)
-        OutputView.displayAllCardsMessage(players.players[0])
 
         assertThat(results.component1().wins).isEqualTo(0)
         assertThat(results.component1().losses).isEqualTo(1)
@@ -113,8 +102,6 @@ class ResultsTest {
         val players = Players(listOf(player))
         val evaluator = ResultEvaluator(players, dealer)
         val results = evaluator.calculateResults()
-        OutputView.displayAllCardsMessage(dealer)
-        OutputView.displayAllCardsMessage(players.players[0])
 
         assertThat(results.component1().wins).isEqualTo(1)
         assertThat(results.component1().losses).isEqualTo(0)
