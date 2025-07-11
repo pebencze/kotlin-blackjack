@@ -16,13 +16,11 @@ object OutputView {
     }
 
     fun displayAllCardsMessage(participant: Participant) {
-        print(participant.name + "'s cards: ")
-        println(participant.cardsToString())
+        println("${participant.name}'s cards: ${participant.cardsToString()}")
     }
 
     fun displayFirstCardMessage(participant: Participant) {
-        print(participant.name + ": ")
-        println(participant.firstCardToString())
+        println("${participant.name}: ${participant.firstCardToString()}")
     }
 
     fun displayDealerDrawMessage() {
@@ -32,8 +30,7 @@ object OutputView {
     fun displayParticipantStatus(participant: Participant){
         if (participant is Dealer)
             println()
-        print(participant.name + "'s cards: ")
-        print(participant.cardsToString())
+        print("${participant.name}'s cards: ${participant.cardsToString()}")
         println(" – Total: ${participant.handCards.total}")
     }
 
