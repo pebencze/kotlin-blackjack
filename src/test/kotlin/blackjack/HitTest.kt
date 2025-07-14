@@ -1,9 +1,11 @@
 package blackjack
 
 import blackjack.model.BlackJack
+import blackjack.model.Bust
 import blackjack.model.HandCards
 import blackjack.model.State
 import blackjack.model.Hit
+import blackjack.model.Stay
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
@@ -40,7 +42,7 @@ class HitTest {
 
     @Test
     fun `test throws exception if amount of cards is less than 2`() {
-        assertThrows<IllegalStateException> { Hit() }
+        assertThrows<IllegalStateException> { Hit(HandCards()) }
         assertThrows<IllegalStateException> { Hit(HandCards.from(QUEEN_CLUBS, QUEEN_DIAMONDS, QUEEN_HEARTS)) }
     }
 
