@@ -41,6 +41,7 @@ class Controller {
         repeat(MAX_TRIES) {
             try {
                 player.bet = Bet.of(InputView.readBettingAmount(player))
+                return
             } catch (e: IllegalArgumentException) {
                 println(e.message)
             }
