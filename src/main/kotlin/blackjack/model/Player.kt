@@ -3,6 +3,7 @@ package blackjack.model
 class Player(
     override val name: String,
     override var state: State = Init(),
+    var bet: Bet = Bet.UNPLACED,
 ) : Participant() {
     init {
         require(name.isNotBlank()) { ErrorMessage.NAME_BLANK.toString() }
