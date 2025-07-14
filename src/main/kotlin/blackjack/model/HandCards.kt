@@ -29,4 +29,10 @@ class HandCards(val cards: List<Card> = listOf()) {
     operator fun compareTo(other: HandCards): Int {
         return this.total() - other.total()
     }
+
+    companion object {
+        fun from(vararg cards: Card): HandCards {
+            return HandCards(cards.toList())
+        }
+    }
 }
