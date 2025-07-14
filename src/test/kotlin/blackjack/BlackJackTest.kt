@@ -23,7 +23,13 @@ class BlackJackTest {
     fun `test draw throws exception`(){
         val handCards = HandCards.from(ACE_DIAMONDS, QUEEN_DIAMONDS)
         val blackJack = BlackJack(handCards)
-        assertThrows<IllegalStateException> { blackJack.draw(TWO_CLUBS) }
+        assertThrows<IllegalStateException> { blackJack.stay() }
+    }
+
+    @Test
+    fun `test stay throws exception`(){
+        val handCards = HandCards.from(ACE_DIAMONDS, QUEEN_DIAMONDS)
+        val blackJack = BlackJack(handCards)
         assertThrows<IllegalStateException> { blackJack.stay() }
     }
 }
