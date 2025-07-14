@@ -9,6 +9,6 @@ class Bust(override val hand: HandCards) : State {
     }
 
     override fun stay(): State {
-        return Stay(hand)
+        throw IllegalStateException()
     }
 }
