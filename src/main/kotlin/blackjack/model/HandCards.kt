@@ -1,14 +1,9 @@
 package blackjack.model
 
 class HandCards(val cards: List<Card> = listOf()) {
-    val total: Int
-        get() = calculateTotal()
+    operator fun plus(card: Card): HandCards = HandCards(cards + card)
 
-    fun add(card: Card): HandCards {
-        return HandCards(cards + card)
-    }
-
-    private fun calculateTotal(): Int {
+    fun total(): Int {
         var total = 0
         for (card in cards) {
             total += card.rank.value
@@ -32,6 +27,6 @@ class HandCards(val cards: List<Card> = listOf()) {
     }
 
     operator fun compareTo(other: HandCards): Int {
-        return this.calculateTotal() - other.calculateTotal()
+        return this.total() - other.total()
     }
 }
