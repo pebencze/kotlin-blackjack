@@ -1,13 +1,11 @@
 package blackjack.view
 
+import blackjack.model.Players
+
 object OutputView {
-//    fun displayPlayerNames(players: Players) {
-//        println(players.players.joinToString())
-//    }
-//
-//    fun displayInitialCardsMessage(players: Players) {
-//        println("\nDealing two cards to dealer, ${players.players.joinToString()}.")
-//    }
+    fun displayInitialMessage(players: Players) {
+        println("\nDealing two cards to dealer, ${players.players.joinToString()}.")
+    }
 //
 //    fun displayAllCardsMessage(participant: Participant) {
 //        println("${participant.name}'s cards: ${participant.cardsToString()}")

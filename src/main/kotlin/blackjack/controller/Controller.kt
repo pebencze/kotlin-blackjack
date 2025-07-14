@@ -6,6 +6,7 @@ import blackjack.model.ErrorMessage
 import blackjack.model.Player
 import blackjack.model.Players
 import blackjack.view.InputView
+import blackjack.view.OutputView
 
 class Controller {
     fun runGame() {
@@ -14,8 +15,8 @@ class Controller {
 
         players.forEach { setBettingAmount(it) }
 
-
-//        drawInitialCards()
+        TODO("put following logic into a Game class")
+        drawInitialCards()
 //        OutputView.displayFirstCardMessage(dealer)
 //        players.forEach { OutputView.displayAllCardsMessage(it) }
 //        players.dealCards()
@@ -103,13 +104,13 @@ class Controller {
 //        throw RuntimeException(ErrorMessage.MAX_TRIES.message)
 //    }
 //
-//    private fun drawInitialCards() {
-//        displayInitialCardsMessage(players)
-//        repeat(2) {
-//            dealer.drawCard(deck)
-//            players.forEach { it.drawCard(deck) }
-//        }
-//    }
+    private fun drawInitialCards(players: Players, dealer: Dealer) {
+        OutputView.displayInitialMessage(players)
+        repeat(2) {
+            dealer.state.draw()
+            players.forEach { it.drawCard(deck) }
+        }
+    }
 
     companion object {
         const val MAX_TRIES = 5
