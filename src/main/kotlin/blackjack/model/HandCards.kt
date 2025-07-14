@@ -1,11 +1,11 @@
 package blackjack.model
 
-class HandCards(val cards: MutableList<Card> = mutableListOf()) {
+class HandCards(val cards: List<Card> = listOf()) {
     val total: Int
         get() = calculateTotal()
 
-    fun add(card: Card) {
-        cards.add(card)
+    fun add(card: Card): HandCards {
+        return HandCards(cards + card)
     }
 
     private fun calculateTotal(): Int {
