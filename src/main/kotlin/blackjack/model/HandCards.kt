@@ -12,6 +12,8 @@ class HandCards(val cards: List<Card> = listOf()) {
         return total
     }
 
+    fun size() = cards.size
+
     private fun discount(total: Int): Int {
         var numberOfAces = 0
         var discount = 0

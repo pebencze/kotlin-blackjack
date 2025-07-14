@@ -12,6 +12,10 @@ class Init(override val hand: HandCards = HandCards()) : State {
             else -> Hit(newHand)
         }
     }
+
+    override fun stay(): State {
+        throw IllegalStateException()
+    }
 }
 
 //Q: Would it make sense to directly call draw twice in the init block when creating an Init object?
