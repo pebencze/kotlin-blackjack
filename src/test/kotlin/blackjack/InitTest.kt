@@ -12,15 +12,20 @@ import org.junit.jupiter.api.assertThrows
 class InitTest {
     @Test
     fun `test empty hand`() {
-        var state: State = Init()
+        val state: State = Init()
         assertThat(state.hand.cards.size).isEqualTo(0)
         assertThat(state).isInstanceOf(Init::class.java)
     }
 
     @Test
+    fun `test init Init with 2 cards`() {
+        assertThrows<IllegalStateException> { Init(HandCards.from(QUEEN_DIAMONDS, QUEEN_HEARTS)) }
+    }
+
+    @Test
     fun `test hand of 3 cards throws IllegalStateException`() {
         val handCards = HandCards(listOf(THREE_CLUBS, THREE_HEARTS, THREE_SPADES))
-        assertThrows<IllegalStateException> { val state: State = Init(handCards) }
+        assertThrows<IllegalStateException> { Init(handCards) }
     }
 
     @Test

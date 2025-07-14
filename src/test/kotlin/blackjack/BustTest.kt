@@ -9,8 +9,6 @@ import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.MethodSource
 
-val validBustHand = HandCards.from(QUEEN_DIAMONDS, KING_CLUBS, JACK_CLUBS)
-
 class BustTest {
     @ParameterizedTest
     @MethodSource("invalidBustHands")
@@ -26,13 +24,13 @@ class BustTest {
 
     @Test
     fun `test draw throws exception`(){
-        val bust = Bust(validBustHand)
+        val bust = Bust(VALID_BUST_HAND)
         assertThrows<IllegalStateException> { bust.draw(ACE_DIAMONDS) }
     }
 
     @Test
     fun `test stay throws exception`(){
-        val bust = Bust(validBustHand)
+        val bust = Bust(VALID_BUST_HAND)
         assertThrows<IllegalStateException> { bust.stay() }
     }
 
@@ -43,5 +41,7 @@ class BustTest {
             Arguments.of(HandCards.from(THREE_HEARTS, FIVE_HEARTS)),
             Arguments.of(HandCards())
         )
+
+        private val VALID_BUST_HAND = HandCards.from(QUEEN_DIAMONDS, KING_CLUBS, JACK_CLUBS)
     }
 }
