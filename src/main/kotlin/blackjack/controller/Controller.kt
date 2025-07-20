@@ -1,6 +1,7 @@
 package blackjack.controller
 
 import blackjack.model.Bet
+import blackjack.model.CardDeck
 import blackjack.model.Dealer
 import blackjack.model.ErrorMessage
 import blackjack.model.Player
@@ -12,13 +13,14 @@ class Controller {
     fun runGame() {
         val players = initializePlayers()
         val dealer = Dealer()
+        val deck = CardDeck()
 
         players.forEach { setBettingAmount(it) }
 
-        TODO("put following logic into a Game class")
-        drawInitialCards()
-//        OutputView.displayFirstCardMessage(dealer)
-//        players.forEach { OutputView.displayAllCardsMessage(it) }
+        // TODO("put following logic into a Game class")
+        firstRound(players, dealer, deck)
+        OutputView.displayFirstCardMessage(dealer)
+        players.forEach { OutputView.displayAllCardsMessage(it) }
 //        players.dealCards()
 //        dealer.dealCards()
 //        displayCardsAndTotal()
@@ -104,11 +106,11 @@ class Controller {
 //        throw RuntimeException(ErrorMessage.MAX_TRIES.message)
 //    }
 //
-    private fun drawInitialCards(players: Players, dealer: Dealer) {
-        OutputView.displayInitialMessage(players)
+    private fun firstRound(players: Players, dealer: Dealer, deck: CardDeck) {
+        OutputView.displayFirstRoundMessage(players)
         repeat(2) {
-            dealer.state.draw()
-            players.forEach { it.drawCard(deck) }
+            dealer.state.draw(deck.hit())
+            players.forEach { it.state.draw(deck.hit()) }
         }
     }
 

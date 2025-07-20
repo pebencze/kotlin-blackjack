@@ -1,19 +1,37 @@
 package blackjack.view
 
+import blackjack.model.Card
+import blackjack.model.Participant
 import blackjack.model.Players
 
 object OutputView {
-    fun displayInitialMessage(players: Players) {
+    fun displayFirstRoundMessage(players: Players) {
         println("\nDealing two cards to dealer, ${players.players.joinToString()}.")
     }
-//
-//    fun displayAllCardsMessage(participant: Participant) {
-//        println("${participant.name}'s cards: ${participant.cardsToString()}")
-//    }
-//
-//    fun displayFirstCardMessage(participant: Participant) {
-//        println("${participant.name}: ${participant.firstCardToString()}")
-//    }
+
+    fun displayAllCardsMessage(participant: Participant) {
+        val cards = participant.state.hand.cards
+        println("${participant.name}'s cards: ${handCardsToString(cards)}")
+    }
+
+    fun displayFirstCardMessage(participant: Participant) {
+        val firstCard = participant.state.hand.cards.first()
+        println("${participant.name}: ${cardToString(firstCard)}")
+    }
+
+    private fun cardToString(card: Card): String {
+        return card.rank.title + card.suit.symbol
+    }
+
+    private fun handCardsToString(cards: List<Card>): String {
+        val sb = StringBuilder()
+        cards.forEach {
+            sb.append(it.rank.title)
+            sb.append(it.suit.symbol)
+            sb.append(" ")
+        }
+        return sb.toString()
+    }
 //
 //    fun displayDealerDrawMessage() {
 //        println("\nDealer draws one more card due to having 16 or less.")
