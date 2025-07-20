@@ -1,6 +1,7 @@
 package blackjack.view
 
 import blackjack.model.Card
+import blackjack.model.Dealer
 import blackjack.model.Participant
 import blackjack.model.Players
 
@@ -11,7 +12,7 @@ object OutputView {
 
     fun displayAllCardsMessage(participant: Participant) {
         val cards = participant.state.hand.cards
-        println("${participant.name}'s cards: ${handCardsToString(cards)}")
+        println("${participant.name}'s cards: ${cardsToString(cards)}")
     }
 
     fun displayFirstCardMessage(participant: Participant) {
@@ -23,7 +24,7 @@ object OutputView {
         return card.rank.title + card.suit.symbol
     }
 
-    private fun handCardsToString(cards: List<Card>): String {
+    private fun cardsToString(cards: List<Card>): String {
         val sb = StringBuilder()
         cards.forEach {
             sb.append(it.rank.title)
@@ -32,17 +33,18 @@ object OutputView {
         }
         return sb.toString()
     }
-//
-//    fun displayDealerDrawMessage() {
-//        println("\nDealer draws one more card due to having 16 or less.")
-//    }
-//
-//    fun displayParticipantStatus(participant: Participant){
-//        if (participant is Dealer)
-//            println()
-//        print("${participant.name}'s cards: ${participant.cardsToString()}")
-//        println(" – Total: ${participant.handCards.total}")
-//    }
+
+    fun displayDealerDrawMessage() {
+        println("\nDealer draws one more card due to having 16 or less.")
+    }
+
+    fun displayParticipantStatus(participant: Participant){
+        if (participant is Dealer)
+            println()
+        val cards = participant.state.hand.cards
+        print("${participant.name}'s cards: ${cardsToString(cards)}")
+        println(" – Total: ${participant.state.hand.total()}")
+    }
 //
 //    fun dealerResultString(result: DealerResult): String {
 //        return "Dealer: ${result.wins} wins, ${result.losses} losses, ${result.draws} draws"
