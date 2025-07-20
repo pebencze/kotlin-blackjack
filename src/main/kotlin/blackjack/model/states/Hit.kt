@@ -3,7 +3,7 @@ package blackjack.model.states
 import blackjack.model.Card
 import blackjack.model.HandCards
 
-class Hit(override val hand: HandCards) : State {
+class Hit(override val hand: HandCards) : Running {
     init {
         if (hand.total() > 21 || hand.size() < 2) { throw IllegalStateException() }
     }
