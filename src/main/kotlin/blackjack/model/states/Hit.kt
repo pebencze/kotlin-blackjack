@@ -1,4 +1,7 @@
-package blackjack.model
+package blackjack.model.states
+
+import blackjack.model.Card
+import blackjack.model.HandCards
 
 class Hit(override val hand: HandCards) : State {
     init {

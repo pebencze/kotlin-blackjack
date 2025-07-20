@@ -1,6 +1,6 @@
 package blackjack
 
-import blackjack.model.BlackJack
+import blackjack.model.states.BlackJack
 import blackjack.model.HandCards
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertDoesNotThrow

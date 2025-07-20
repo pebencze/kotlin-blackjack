@@ -1,5 +1,8 @@
 package blackjack.model
 
+import blackjack.model.states.Init
+import blackjack.model.states.State
+
 class Dealer(
     override val name: String = "Dealer",
     override var state: State = Init(),

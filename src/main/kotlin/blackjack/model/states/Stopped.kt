@@ -1,6 +1,8 @@
-package blackjack.model
+package blackjack.model.states
 
-abstract class Stop : State {
+import blackjack.model.Card
+
+abstract class Stopped : State {
     abstract val rate: Double
 
     override fun draw(card: Card): State {

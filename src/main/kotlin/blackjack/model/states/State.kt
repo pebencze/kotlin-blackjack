@@ -1,5 +1,7 @@
+package blackjack.model.states
 
-package blackjack.model
+import blackjack.model.Card
+import blackjack.model.HandCards
 
 interface State {
     val hand: HandCards
