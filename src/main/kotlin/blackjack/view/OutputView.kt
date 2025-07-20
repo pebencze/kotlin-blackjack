@@ -45,20 +45,12 @@ object OutputView {
         print("${participant.name}'s cards: ${cardsToString(cards)}")
         println(" – Total: ${participant.state.hand.total()}")
     }
-//
-//    fun dealerResultString(result: DealerResult): String {
-//        return "Dealer: ${result.wins} wins, ${result.losses} losses, ${result.draws} draws"
-//    }
-//
-//    fun playerResultToString(result: PlayerResult): String {
-//        if (result.win) return "${result.name}: win"
-//        if (result.draw) return "${result.name}: draw"
-//        return "${result.name}: loss"
-//    }
-//
-//    fun displayResults(results: Results) {
-//        println("\n## Final Results:")
-//        println(dealerResultString(results.dealerResult))
-//        results.component2().forEach { println(playerResultToString(it)) }
-//    }
+
+    fun displayFinalResultString() {
+        println("\n##Final Earnings")
+    }
+
+    fun displayResult(result: Double, participant: Participant) {
+        println("${participant.name}: $result")
+    }
 }

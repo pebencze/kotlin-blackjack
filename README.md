@@ -53,7 +53,19 @@ States
 Context
 - [ ] set betting amount for each player
   - [ ] positive Int
-  - [ ] 
+
+## Results
+  | Implemented | **Situation**                                     | **Winner** | **Explanation**                                                     |
+  |-------------| ------------------------------------------------- | ---------- | ------------------------------------------------------------------- |
+  | y           | Player gets blackjack, dealer doesn't             | Player     | Blackjack (Ace + 10) pays 3:2 or 6:5, depending on rules            |
+  | y           | Dealer gets blackjack, player doesn't             | Dealer     | Dealer wins unless the player also has blackjack (then it's a push) |
+  | y           | Both player and dealer get blackjack              | Push (tie) | No one wins, player's bet is returned                               |
+  | y           | Player busts (goes over 21)                       | Dealer     | Automatic loss for the player regardless of dealer's hand           |
+  | y           | Dealer busts, player doesn't                      | Player     | Dealer loses automatically if over 21                               |
+  | y           | Neither busts, player's hand > dealer's           | Player     | Closest to 21 without busting wins                                  |
+  | y           | Neither busts, dealer's hand > player's           | Dealer     | Dealer wins if they are closer to 21                                |
+  | y           | Player and dealer have same total (not blackjack) | Push (tie) | No one wins, bet is returned                                        |
+
 
 ## Sample Output
 ```

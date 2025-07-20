@@ -6,6 +6,7 @@ import blackjack.model.Dealer
 import blackjack.model.ErrorMessage
 import blackjack.model.Player
 import blackjack.model.Players
+import blackjack.model.Results
 import blackjack.model.states.Running
 import blackjack.view.InputView
 import blackjack.view.OutputView
@@ -23,7 +24,7 @@ class Controller {
         dealToPlayers(players, deck)
         dealToDealer(dealer, deck)
         displayCardsAndTotal(dealer, players)
-//        printResults()
+        printResults(dealer, players)
     }
 
     private fun initializePlayers(): Players {
@@ -50,13 +51,18 @@ class Controller {
         }
         throw RuntimeException(ErrorMessage.MAX_TRIES.message)
     }
-//
-//    private fun printResults() {
-//        val evaluator = ResultEvaluator(players, dealer)
-//        val results = evaluator.calculateResults()
-//        OutputView.displayResults(results)
-//    }
-//
+
+    private fun printResults(dealer: Dealer, players: Players) {
+        val evaluator = Results(dealer, players)
+        var result = evaluator.dealerResult()
+        OutputView.displayFinalResultString()
+        OutputView.displayResult(result, dealer)
+        players.forEach {
+           result = evaluator.playerResult(it)
+           OutputView.displayResult(result, it)
+        }
+    }
+
     private fun displayCardsAndTotal(dealer: Dealer, players: Players) {
         OutputView.displayParticipantStatus(dealer)
         players.forEach { OutputView.displayParticipantStatus(it) }
