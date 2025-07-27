@@ -24,7 +24,7 @@ class Controller {
         dealToPlayers(players, deck)
         dealToDealer(dealer, deck)
         displayCardsAndTotal(dealer, players)
-        printResults(dealer, players)
+        calculateAndPrintResults(dealer, players)
     }
 
     private fun initializePlayers(): Players {
@@ -52,15 +52,12 @@ class Controller {
         throw RuntimeException(ErrorMessage.MAX_TRIES.message)
     }
 
-    private fun printResults(dealer: Dealer, players: Players) {
-        val evaluator = Results(dealer, players)
-        var result = evaluator.dealerResult()
+    private fun calculateAndPrintResults(dealer: Dealer, players: Players) {
+        val (dealerResult, playersResult) = Results(dealer, players).calculate()
+
         OutputView.displayFinalResultString()
-        OutputView.displayResult(result, dealer)
-        players.forEach {
-           result = evaluator.playerResult(it)
-           OutputView.displayResult(result, it)
-        }
+        OutputView.displayResult(dealerResult, dealer)
+        playersResult.forEach { OutputView.displayResult(it.value, it.key) }
     }
 
     private fun displayCardsAndTotal(dealer: Dealer, players: Players) {
@@ -70,8 +67,10 @@ class Controller {
 
     private fun dealToDealer(dealer: Dealer, deck: CardDeck) {
         while (dealer.state is Running) {
-            OutputView.displayDealerDrawMessage()
-            if (dealer.shouldDraw()) dealer.state = dealer.state.draw(deck.hit())
+            if (dealer.shouldDraw()) {
+                OutputView.displayDealerDrawMessage()
+                dealer.state = dealer.state.draw(deck.hit())
+            }
             else dealer.state = dealer.state.stay()
         }
     }
