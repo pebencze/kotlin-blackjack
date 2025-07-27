@@ -9,4 +9,11 @@ class BlackJack(
     init {
         if (hand.total() != 21 && hand.size() != 2) { throw IllegalStateException() }
     }
+
+    override fun profit(money: Int, dealerState: State): Double {
+        if (dealerState is BlackJack) {
+            return 0.0
+        }
+        return money * rate
+    }
 }

@@ -10,4 +10,8 @@ class Bust(
         if (hand.total() <= 21) { throw IllegalStateException() }
     }
 
+    override fun profit(money: Int, dealerState: State): Double {
+        return money * rate
+    }
+
 }

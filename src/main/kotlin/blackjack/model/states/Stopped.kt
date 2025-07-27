@@ -12,8 +12,4 @@ abstract class Stopped : State {
     override fun stay(): State {
         throw IllegalStateException()
     }
-
-    override fun profit(money: Int): Double {
-        return money * rate
-    }
 }
