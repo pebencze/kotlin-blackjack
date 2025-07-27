@@ -1,9 +1,9 @@
 package blackjack.model.table
 
 import blackjack.model.Bet
-import blackjack.view.ErrorMessage
 import blackjack.model.states.Init
 import blackjack.model.states.State
+import blackjack.view.ErrorMessage
 
 class Player(
     override val name: String,

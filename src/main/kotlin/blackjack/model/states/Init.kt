@@ -5,7 +5,9 @@ import blackjack.model.cards.HandCards
 
 class Init(override val hand: HandCards = HandCards()) : Running {
     init {
-        if (hand.cards.size > 1) { throw IllegalStateException() }
+        if (hand.cards.size > 1) {
+            throw IllegalStateException()
+        }
     }
 
     override fun draw(card: Card): State {

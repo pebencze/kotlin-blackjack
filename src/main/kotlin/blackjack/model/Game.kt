@@ -32,8 +32,9 @@ class Game(private val players: Players, private val dealer: Dealer, private val
             if (dealer.shouldDraw()) {
                 OutputView.displayDealerDrawMessage()
                 dealer.state = dealer.state.draw(deck.hit())
+            } else {
+                dealer.state = dealer.state.stay()
             }
-            else dealer.state = dealer.state.stay()
         }
     }
 
@@ -43,14 +44,17 @@ class Game(private val players: Players, private val dealer: Dealer, private val
 
     private fun dealToPlayer(player: Player) {
         while (player.state is Running) {
-            if (wantsToDraw(player)) player.state = player.state.draw(deck.hit())
-            else player.state = player.state.stay()
+            if (wantsToDraw(player)) {
+                player.state = player.state.draw(deck.hit())
+            } else {
+                player.state = player.state.stay()
+            }
             OutputView.displayAllCardsMessage(player)
         }
     }
 
     private fun wantsToDraw(player: Player): Boolean {
-        repeat(MAX_TRIES){
+        repeat(MAX_TRIES) {
             try {
                 return InputView.promptForDraw(player)
             } catch (e: IllegalArgumentException) {

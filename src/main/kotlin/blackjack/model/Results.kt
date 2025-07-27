@@ -4,8 +4,8 @@ import blackjack.model.table.Dealer
 import blackjack.model.table.Participant
 import blackjack.model.table.Players
 
-class Results(private val dealer: Dealer, private val players: Players){
-    fun calculate(): Pair<Double, Map<Participant, Double>>{
+class Results(private val dealer: Dealer, private val players: Players) {
+    fun calculate(): Pair<Double, Map<Participant, Double>>  {
         var dealerResult = 0.0
         val playersResult = emptyMap<Participant, Double>().toMutableMap()
 
@@ -14,6 +14,6 @@ class Results(private val dealer: Dealer, private val players: Players){
             dealerResult -= playerResult
             playersResult[it] = playerResult
         }
-        return Pair( dealerResult, playersResult)
+        return Pair(dealerResult, playersResult)
     }
 }

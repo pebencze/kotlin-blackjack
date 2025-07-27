@@ -10,7 +10,7 @@ enum class ErrorMessage(val message: String) {
     BETTING_AMOUNT("Betting amount has to be a positive integer"),
     NAME_BLANK("Name cannot be blank."),
     NAME_LENGTH("Name cannot be longer than 15 characters."),
-    NAME_LETTERS("Name must contain only letters.")
+    NAME_LETTERS("Name must contain only letters."),
     ;
 
     override fun toString() = "[ERROR] $message"

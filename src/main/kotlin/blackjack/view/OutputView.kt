@@ -38,9 +38,10 @@ object OutputView {
         println("\nDealer draws one more card due to having 16 or less.")
     }
 
-    fun displayParticipantStatus(participant: Participant){
-        if (participant is Dealer)
+    fun displayParticipantStatus(participant: Participant)  {
+        if (participant is Dealer) {
             println()
+        }
         val cards = participant.state.hand.cards
         print("${participant.name}'s cards: ${cardsToString(cards)}")
         println(" – Total: ${participant.state.hand.total()}")
@@ -50,7 +51,10 @@ object OutputView {
         println("\n##Final Earnings")
     }
 
-    fun displayResult(result: Double, participant: Participant) {
+    fun displayResult(
+        result: Double,
+        participant: Participant,
+    ) {
         println("${participant.name}: $result")
     }
 }

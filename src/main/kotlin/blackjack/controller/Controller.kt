@@ -1,13 +1,13 @@
 package blackjack.controller
 
 import blackjack.model.Bet
+import blackjack.model.Game
+import blackjack.model.Results
 import blackjack.model.cards.CardDeck
 import blackjack.model.table.Dealer
-import blackjack.view.ErrorMessage
-import blackjack.model.Game
 import blackjack.model.table.Player
 import blackjack.model.table.Players
-import blackjack.model.Results
+import blackjack.view.ErrorMessage
 import blackjack.view.InputView
 import blackjack.view.OutputView
 
@@ -51,7 +51,10 @@ class Controller {
         throw RuntimeException(ErrorMessage.MAX_TRIES.message)
     }
 
-    private fun calculateAndPrintResults(dealer: Dealer, players: Players) {
+    private fun calculateAndPrintResults(
+        dealer: Dealer,
+        players: Players,
+    ) {
         val (dealerResult, playersResult) = Results(dealer, players).calculate()
 
         OutputView.displayFinalResultString()
@@ -59,7 +62,10 @@ class Controller {
         playersResult.forEach { OutputView.displayResult(it.value, it.key) }
     }
 
-    private fun displayCardsAndTotal(dealer: Dealer, players: Players) {
+    private fun displayCardsAndTotal(
+        dealer: Dealer,
+        players: Players,
+    ) {
         OutputView.displayParticipantStatus(dealer)
         players.forEach { OutputView.displayParticipantStatus(it) }
     }

@@ -1,10 +1,10 @@
 package blackjack
 
-import blackjack.model.states.State
-import blackjack.model.states.Init
-import blackjack.model.states.Hit
-import blackjack.model.states.BlackJack
 import blackjack.model.cards.HandCards
+import blackjack.model.states.BlackJack
+import blackjack.model.states.Hit
+import blackjack.model.states.Init
+import blackjack.model.states.State
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
@@ -60,5 +60,4 @@ class InitTest {
         assertThat(state.hand.cards.size).isEqualTo(2)
         assertThat(state).isInstanceOf(BlackJack::class.java)
     }
-
 }

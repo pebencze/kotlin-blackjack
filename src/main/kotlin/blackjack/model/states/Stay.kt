@@ -5,13 +5,18 @@ import blackjack.model.cards.HandCards
 
 class Stay(
     override val hand: HandCards,
-    override val rate: Double = 1.0
+    override val rate: Double = 1.0,
 ) : Stopped() {
     init {
-        if (hand.size() < 2) { throw IllegalStateException() }
+        if (hand.size() < 2) {
+            throw IllegalStateException()
+        }
     }
 
-    override fun profit(bet: Bet, dealerState: State): Double {
+    override fun profit(
+        bet: Bet,
+        dealerState: State,
+    ): Double {
         return when (dealerState) {
             is BlackJack -> (bet.amount * LOSS)
             is Bust -> (bet.amount * rate)
