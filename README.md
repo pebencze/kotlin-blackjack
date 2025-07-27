@@ -1,3 +1,4 @@
+
 # Kotlin Blackjack
 Welcome to my simple Blackjack card game in Kotlin. I have implemented 
 an interactive game following the original Blackjack rules. Players can also bet
@@ -90,7 +91,6 @@ Would pobi like to draw another card? (y for yes, n for no)
 n  
 Would jason like to draw another card? (y for yes, n for no)  
 n  
-jason's cards: 7♣, K♠
 
 Dealer draws one more card due to having 16 or less.
 
@@ -105,10 +105,55 @@ jason: -20000
 
 ```
 
+## Features
+### Players
+- [x] get user input for player names
+  - [x] MIN (1), MAX(7) excluding dealer
+  - [x] names can contain only letters
+  - [x] MAX..MIN length
+  - [x] comma separated
+- [x] display names
+
+### Cards
+- [x] create card deck
+- [x] Card values follow standard Blackjack rules:
+  - [x] Number cards are counted by their face value.
+  - [x] Face cards (King, Queen, Jack) are each worth 10.
+  - [x] Aces can be worth either 1 or 11.
+#### Deck
+#### Card
+- [x] suit
+- [x] rank
+- [x] value
+
+- [x] deal initial cards to player and dealer (participants)
+  - [x] 2 per player
+- [x] print cards
+  - [x] for the dealer only 1
+  - [x] for players all
+  - [x] color and value
+
+- [x] prompt each player for drawing cards
+  - [x] until "n"
+  - [x] until he is busted
+- [x] draw cards
+- [x] calculate sum
+- [x] display cards of player
+
+- [x] draw cards for dealer until sum is <= 16
+- [x] display message
+
+- [x] display cards
+- [x] display sum
+
+- [x] calculate results
+  - [x] player 
+  - [x] dealer 
+- [x] display results
+
 ## Considerations
 - Q: Would it make sense to directly call draw twice in the init block when creating an Init object?
 - Q: Why do I not pass the whole deck as parameter to draw()?
 - Q: Is it not costly to always return new instances of State?
 - Q: Mutable handcards vs immutable handcards -> adding a new card always returns a new instance of HandCards
--> seems costly/inefficient to me, but of course it makes the logic more testable and
-
+-> seems costly/inefficient to me, but of course it makes the logic more testable
