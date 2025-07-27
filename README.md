@@ -30,29 +30,29 @@ The State Pattern holds:
 
 ## Features
 States
-- [ ] Hit
+- [x] Hit
   - has to decide if "y" or "n"
   - <= 21 for player (can)
   - <= 16 for dealer (must)
   - {ACTION}
   - -> Hit or Bust or Stay
-- [ ] Bust 
+- [x] Bust 
   - goes over 21
   - {STOP}
-- [ ] Init 
+- [x] Init 
   - has to draw 2 cards
   - {ACTION}
   - -> Hit
-- [ ] BlackJack 
+- [x] BlackJack 
   - has exactly 21 with 2 cards
   - {STOP}
-- [ ] Stay
+- [x] Stay
   - has <= 21, but decided to stop
   - {STOP}
 
 Context
-- [ ] set betting amount for each player
-  - [ ] positive Int
+- [x] set betting amount for each player
+  - [x] positive Int
 
 ## Results
   | Implemented | **Situation**                                     | **Winner** | **Explanation**                                                     |
