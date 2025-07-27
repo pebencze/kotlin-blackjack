@@ -12,4 +12,9 @@ abstract class Stopped : State {
     override fun stay(): State {
         throw IllegalStateException()
     }
+
+    companion object {
+        const val DRAW = 0.0
+        const val LOSS = -1.0
+    }
 }

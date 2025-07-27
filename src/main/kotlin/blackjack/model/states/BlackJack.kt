@@ -13,7 +13,7 @@ class BlackJack(
 
     override fun profit(bet: Bet, dealerState: State): Double {
         if (dealerState is BlackJack) {
-            return 0.0
+            return DRAW
         }
         return bet.amount * rate
     }
