@@ -1,4 +1,4 @@
-package blackjack.model
+package blackjack.model.cards
 
 data class Card(
     val rank: Rank,

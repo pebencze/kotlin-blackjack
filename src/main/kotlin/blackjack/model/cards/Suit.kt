@@ -1,4 +1,4 @@
-package blackjack.model
+package blackjack.model.cards
 
 enum class Suit(val symbol: String) {
     HEARTS("♥"),

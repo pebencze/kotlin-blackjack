@@ -1,4 +1,6 @@
-package blackjack.model
+package blackjack.model.table
+
+import blackjack.view.ErrorMessage
 
 class Players(val players: List<Player>) {
     init {

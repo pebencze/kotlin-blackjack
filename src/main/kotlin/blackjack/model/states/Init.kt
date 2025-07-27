@@ -1,7 +1,7 @@
 package blackjack.model.states
 
-import blackjack.model.Card
-import blackjack.model.HandCards
+import blackjack.model.cards.Card
+import blackjack.model.cards.HandCards
 
 class Init(override val hand: HandCards = HandCards()) : Running {
     init {

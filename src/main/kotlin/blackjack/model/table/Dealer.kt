@@ -1,4 +1,4 @@
-package blackjack.model
+package blackjack.model.table
 
 import blackjack.model.states.Init
 import blackjack.model.states.State

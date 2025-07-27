@@ -1,7 +1,12 @@
 package blackjack.model
 
 import blackjack.controller.Controller.Companion.MAX_TRIES
+import blackjack.model.cards.CardDeck
 import blackjack.model.states.Running
+import blackjack.model.table.Dealer
+import blackjack.model.table.Player
+import blackjack.model.table.Players
+import blackjack.view.ErrorMessage
 import blackjack.view.InputView
 import blackjack.view.OutputView
 

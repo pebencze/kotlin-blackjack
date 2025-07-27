@@ -1,8 +1,8 @@
 package blackjack
 
-import blackjack.model.Card
-import blackjack.model.Rank
-import blackjack.model.Suit
+import blackjack.model.cards.Card
+import blackjack.model.cards.Rank
+import blackjack.model.cards.Suit
 
 val ACE_CLUBS = Card(Rank.ACE, Suit.CLUBS)
 val TWO_CLUBS = Card(Rank.TWO, Suit.CLUBS)

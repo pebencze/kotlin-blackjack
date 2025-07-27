@@ -1,9 +1,9 @@
 package blackjack.view
 
-import blackjack.model.Card
-import blackjack.model.Dealer
-import blackjack.model.Participant
-import blackjack.model.Players
+import blackjack.model.cards.Card
+import blackjack.model.table.Dealer
+import blackjack.model.table.Participant
+import blackjack.model.table.Players
 
 object OutputView {
     fun displayFirstRoundMessage(players: Players) {

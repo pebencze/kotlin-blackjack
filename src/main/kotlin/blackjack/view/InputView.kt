@@ -1,7 +1,6 @@
 package blackjack.view
 
-import blackjack.model.ErrorMessage
-import blackjack.model.Player
+import blackjack.model.table.Player
 
 object InputView {
     fun readNames(): List<String> {

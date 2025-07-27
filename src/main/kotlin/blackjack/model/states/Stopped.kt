@@ -1,6 +1,6 @@
 package blackjack.model.states
 
-import blackjack.model.Card
+import blackjack.model.cards.Card
 
 abstract class Stopped : State {
     abstract val rate: Double

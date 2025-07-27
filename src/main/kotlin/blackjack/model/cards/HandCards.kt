@@ -1,4 +1,4 @@
-package blackjack.model
+package blackjack.model.cards
 
 class HandCards(val cards: List<Card> = listOf()) {
     operator fun plus(card: Card): HandCards = HandCards(cards + card)

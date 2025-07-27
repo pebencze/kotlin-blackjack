@@ -1,7 +1,7 @@
 package blackjack.model.states
 
 import blackjack.model.Bet
-import blackjack.model.HandCards
+import blackjack.model.cards.HandCards
 
 class Stay(
     override val hand: HandCards,
