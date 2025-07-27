@@ -1,5 +1,6 @@
 package blackjack.model.states
 
+import blackjack.model.Bet
 import blackjack.model.HandCards
 
 class Stay(
@@ -10,18 +11,18 @@ class Stay(
         if (hand.size() < 2) { throw IllegalStateException() }
     }
 
-    override fun profit(money: Int, dealerState: State): Double {
+    override fun profit(bet: Bet, dealerState: State): Double {
         return when (dealerState) {
-            is BlackJack -> (money * rate * -1.0)
-            is Bust -> (money * rate)
+            is BlackJack -> (bet.amount * rate * -1.0)
+            is Bust -> (bet.amount * rate)
             is Stay -> {
                 when {
-                    (dealerState.hand < this.hand) -> (money * rate)
-                    (dealerState.hand > this.hand) -> (money * rate * -1.0)
+                    (dealerState.hand < this.hand) -> (bet.amount * rate)
+                    (dealerState.hand > this.hand) -> (bet.amount * rate * -1.0)
                     else -> 0.0
                 }
             }
-            else -> (money * rate)
+            else -> (bet.amount * rate)
         }
     }
 }

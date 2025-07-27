@@ -1,5 +1,6 @@
 package blackjack.model.states
 
+import blackjack.model.Bet
 import blackjack.model.HandCards
 
 class Bust(
@@ -10,8 +11,8 @@ class Bust(
         if (hand.total() <= 21) { throw IllegalStateException() }
     }
 
-    override fun profit(money: Int, dealerState: State): Double {
-        return money * rate
+    override fun profit(bet: Bet, dealerState: State): Double {
+        return bet.amount * rate
     }
 
 }

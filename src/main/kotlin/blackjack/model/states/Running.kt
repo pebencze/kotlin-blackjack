@@ -1,7 +1,9 @@
 package blackjack.model.states
 
+import blackjack.model.Bet
+
 interface Running : State {
-    override fun profit(money: Int, dealerState: State): Double {
+    override fun profit(bet: Bet, dealerState: State): Double {
        throw IllegalStateException()
     }
 }

@@ -1,5 +1,6 @@
 package blackjack.model.states
 
+import blackjack.model.Bet
 import blackjack.model.HandCards
 
 class BlackJack(
@@ -10,10 +11,10 @@ class BlackJack(
         if (hand.total() != 21 && hand.size() != 2) { throw IllegalStateException() }
     }
 
-    override fun profit(money: Int, dealerState: State): Double {
+    override fun profit(bet: Bet, dealerState: State): Double {
         if (dealerState is BlackJack) {
             return 0.0
         }
-        return money * rate
+        return bet.amount * rate
     }
 }
