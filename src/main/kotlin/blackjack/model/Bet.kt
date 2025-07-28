@@ -3,8 +3,8 @@ package blackjack.model
 @JvmInline
 value class Bet private constructor(val amount: Int) {
     companion object {
-        const val MIN_BET = 5
-        const val MAX_BET = 100
+        private const val MIN_BET = 5
+        private const val MAX_BET = 100
 
         fun of(amount: Int): Bet {
             require(amount in MIN_BET..MAX_BET) {
