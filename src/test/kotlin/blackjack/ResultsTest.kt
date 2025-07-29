@@ -20,10 +20,11 @@ class ResultsTest {
         val dealer = Dealer(state = dealerState)
 
         val playerState = mock<Stay>()
-        val player = mock<Player> {
-            on { bet } doReturn Bet.of(100)
-            on { state } doReturn playerState
-        }
+        val player =
+            mock<Player> {
+                on { bet } doReturn Bet.of(100)
+                on { state } doReturn playerState
+            }
 
         whenever(playerState.profit(Bet.of(100), dealerState)).thenReturn(100.0)
 

@@ -12,24 +12,24 @@ import org.junit.jupiter.params.provider.MethodSource
 class StayTest {
     @ParameterizedTest
     @MethodSource("invalidStayHands")
-    fun `test init Stay with wrong cards`(hand: HandCards)  {
+    fun `test init Stay with wrong cards`(hand: HandCards) {
         assertThrows<IllegalStateException> { Stay(hand) }
     }
 
     @Test
-    fun `test init stay with correct cards`()  {
+    fun `test init stay with correct cards`() {
         val handCards = HandCards.from(QUEEN_DIAMONDS, QUEEN_SPADES)
         assertDoesNotThrow { Stay(handCards) }
     }
 
     @Test
-    fun `test draw throws exception`()  {
+    fun `test draw throws exception`() {
         val bust = Stay(VALID_STAY_HAND)
         assertThrows<IllegalStateException> { bust.draw(ACE_DIAMONDS) }
     }
 
     @Test
-    fun `test stay throws exception`()  {
+    fun `test stay throws exception`() {
         val bust = Stay(VALID_STAY_HAND)
         assertThrows<IllegalStateException> { bust.stay() }
     }

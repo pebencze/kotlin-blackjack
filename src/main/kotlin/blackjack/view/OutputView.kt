@@ -38,7 +38,7 @@ object OutputView {
         println("\nDealer draws one more card due to having 16 or less.")
     }
 
-    fun displayParticipantStatus(participant: Participant)  {
+    fun displayParticipantStatus(participant: Participant) {
         if (participant is Dealer) {
             println()
         }
