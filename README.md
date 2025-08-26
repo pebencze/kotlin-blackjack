@@ -1,10 +1,10 @@
 
 # Kotlin Blackjack
-Welcome to my simple Blackjack card game in Kotlin. I have implemented 
-an interactive game following the original Blackjack rules. Players can also bet
-some money. here are the rules:
+Welcome to my simple Black Jack game in Kotlin. I have implemented 
+an interactive card game following the original rules. Players can also bet
+some money.
 
-## Rule
+## Rules
 Each player must place a bet at the start of the game. <br/>
 Card values follow standard Blackjack rules: <br/>
 Number cards are counted by their face value.<br/>
